@@ -4,18 +4,18 @@ import Image from 'next/image'
 function Homepage() {
     return (
         <div>
-            <div className='h-screen w-screen overflow-hidden overflow-y-auto'>
-                <div className='place-content-center flex bg-cyan-800'>
+            <div className='bg-cyan-800 h-screen w-screen overflow-hidden overflow-y-auto'>
+                <div className='flex '>
                     {/* <img src="https://cdn.pixabay.com/photo/2018/05/10/11/34/concert-3387324_960_720.jpg" className='z-0 h-full w-auto' alt="" /> */}
                     <Image
                         src={"/../public/temp.png"}
-                        height="1080px"
-                        width="1080px"
-                    // layout={"fill"}
-
+                        height={700}
+                        width={700}
+                        // layout="fill"
+                        objectFit="cover"
+                        className=""
                     />
-                    <svg />
-                    <h1 className='text-white top-10 right-10 pt-20 text-8xl z-10'>Welcome to <br /> UserName</h1>
+                    <h1 className='absolute text-white top-0 pt-4 right-10 text-xl'>Welcome, UserName</h1>
                 </div>
                 {/* // hahahahahahahah */}
                 <div className="max-w-xs mx-auto py-10">
@@ -55,6 +55,3 @@ function Homepage() {
 }
 
 export default Homepage
-
-
-
