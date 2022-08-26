@@ -5,7 +5,7 @@ function Homepage() {
     return (
         <div>
             <div className='bg-cyan-800 h-screen w-screen overflow-hidden overflow-y-auto'>
-                <div className='flex '>
+                <div className='flex relative'>
                     {/* <img src="https://cdn.pixabay.com/photo/2018/05/10/11/34/concert-3387324_960_720.jpg" className='z-0 h-full w-auto' alt="" /> */}
                     <Image
                         src={"/../public/temp.png"}
@@ -15,10 +15,10 @@ function Homepage() {
                         objectFit="cover"
                         className=""
                     />
-                    <h1 className='absolute text-white top-0 pt-4 right-10 text-xl'>Welcome, UserName</h1>
+                    <h1 className='absolute text-white top-0 pt-4 right-5 text-xl'>Welcome, UserName</h1>
                 </div>
                 {/* // hahahahahahahah */}
-                <div className="max-w-xs mx-auto py-10">
+                <div className="max-w-xs mx-auto pb-40 pt-10">
                     <div className="flex flex-col h-full bg-white shadow-lg rounded-lg overflow-hidden">
                         <a className="block focus:outline-none focus-visible:ring-2" href="#0">
                             <figure className="relative h-0 pb-[56.25%] overflow-hidden">
