@@ -15,7 +15,7 @@ function Homepage() {
                         objectFit="cover"
                         className=""
                     />
-                    <h1 className='absolute text-white top-0 pt-4 right-5 text-xl'>Welcome, UserName</h1>
+                    <h1 className='absolute text-white top-0 pt-4 right-5 text-xl'>Welcome, User</h1>
                 </div>
                 {/* // hahahahahahahah */}
                 <div className="max-w-xs mx-auto pb-40 pt-10">

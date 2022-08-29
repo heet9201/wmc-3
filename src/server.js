@@ -28,7 +28,7 @@ app.prepare()
        console.log('Now listening to port 8000'); 
     });
 
-    server.use(routes);
+    server.use('/', routes);
     server.use(express.json);
     server.use(cookieParser());
     server.use(cors({

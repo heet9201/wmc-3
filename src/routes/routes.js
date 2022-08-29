@@ -17,7 +17,7 @@ router.post('/signin', urlencodedParser, async function (req, res) {
         email: req.body.email,
         password: req.body.password
     }).save(function (err, data) {
-        if(err) throw err;
+        if (err) throw err;
         console.log('Data added');
     });
     res.redirect('/login');
@@ -26,25 +26,25 @@ router.post('/signin', urlencodedParser, async function (req, res) {
 });
 
 router.post('/login', urlencodedParser, function (req, res) {
-    var regUser = User.findOne({email: req.body.email}, function (err, obj) {
-        if(err) throw err;
+    var regUser = User.findOne({ email: req.body.email }, function (err, obj) {
+        if (err) throw err;
         // console.log(obj);
         // console.log(regUser.password);
         // console.log({data: regUser});
-        if(!regUser){
+        if (!regUser) {
             return res.status(404).send('User not found');
         }
 
-        if(req.body.password != obj.password){
+        if (req.body.password != obj.password) {
 
             return res.status(400).send('Invalid credentials');
         }
         console.log('Login successful');
 
-        var token = jwt.sign({_id: obj._id}, 'secret');
+        var token = jwt.sign({ _id: obj._id }, 'secret');
         res.cookie('jwt', token, {
             httpOnly: true,
-            maxAge: 24*60*60*1000
+            maxAge: 24 * 60 * 60 * 1000
         });
         console.log('success');
         res.redirect('/');
@@ -65,28 +65,28 @@ router.post('/login', urlencodedParser, function (req, res) {
 });
 
 router.get('/user', function (req, res) {
-    try{
-    var cookie = req.cookies['jwt'];
-    var claims = jwt.verify(cookie, 'secret');
-    if(!claims){
-        return res.status(401).send('Unauthenticated');
-    }
+    try {
+        var cookie = req.cookies['jwt'];
+        var claims = jwt.verify(cookie, 'secret');
+        if (!claims) {
+            return res.status(401).send('Unauthenticated');
+        }
 
-    var user = User.findOne({_id: claims._id});
-    res.send(user);
-    } catch(e){
+        var user = User.findOne({ _id: claims._id });
+        res.send(user);
+    } catch (e) {
         return res.status(401).send('Unauthenticated');
     }
 });
 
 router.post('/logout', function (req, res) {
-   res.cookie('jwt', '', {
-    maxAge: 0
-   }); 
-   res.send({
-    message: 'success'
-   })
-   res.redirect('/login');
+    res.cookie('jwt', '', {
+        maxAge: 0
+    });
+    console.log('logged out successfully');
+    res.redirect('/login');
 });
+
+
 
 module.exports = router;

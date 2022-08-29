@@ -106,12 +106,14 @@ export const Navbar = () => {
                                 Contact us
                             </a>
                         </Link>
-                    </div>
+                    </div> 
                     <div className='lg:mt-0 lg:pr-5 lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto'>
-                        <button
+                    <form className="" action="/logout" method="POST">
+                        <button type='submit'
                             className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-red-600 hover:text-white'>
                             Logout
                         </button>
+                        </form>
                     </div>
                 </div>
             </nav >
