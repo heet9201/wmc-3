@@ -5,7 +5,6 @@ import '../styles/showcase.scss'
 function MyApp({ Component, pageProps }) {
   return <>
     <div className='z-50'>
-      <Navbar />
       <Component {...pageProps} />
     </div>
   </>
